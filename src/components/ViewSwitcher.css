@@ -1,0 +1,27 @@
+.view-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.view-btn {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.view-btn:hover {
+  background-color: #e9ecef;
+}
+
+.view-btn.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
