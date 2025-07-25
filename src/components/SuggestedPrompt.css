@@ -1,0 +1,42 @@
+.suggested-prompt {
+  display: flex;
+  padding: 4px 12px 4px 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  
+  border-radius: 20px;
+  border: 1px solid var(--Other-colors-divider, rgba(0, 0, 0, 0.12));
+  background: var(--paper, #FFF);
+  cursor: pointer;
+  
+  color: var(--Text-colors-secondary, rgba(0, 0, 0, 0.63));
+  font-feature-settings: 'liga' off, 'clig' off;
+  font-family: "Amazon Ember";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.15px;
+  
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  align-self: stretch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.suggested-prompt:hover {
+  background: var(--background-hover, #F5F5F5);
+}
+
+.suggested-prompt-icon {
+  display: flex;
+  padding: 4px;
+  align-items: center;
+  gap: 4px;
+  border-radius: 12px;
+  background: var(--Contextual-Accent-Insight-lightBg, rgba(120, 0, 138, 0.10));
+  width: 16px;
+  height: 16px;
+}

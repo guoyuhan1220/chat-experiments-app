@@ -1,29 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ViewSwitcher.css';
 
-const ViewSwitcher = () => {
-  const [activeView, setActiveView] = useState('view1');
-
-  const handleViewChange = (view) => {
-    setActiveView(view);
-    console.log('Switched to:', view);
-  };
-
+const ViewSwitcher = ({ isCompact, onToggle }) => {
   return (
-    <div className="view-switcher">
-      <button 
-        className={`view-btn ${activeView === 'view1' ? 'active' : ''}`}
-        onClick={() => handleViewChange('view1')}
-      >
-        View 1
-      </button>
-      <button 
-        className={`view-btn ${activeView === 'view2' ? 'active' : ''}`}
-        onClick={() => handleViewChange('view2')}
-      >
-        View 2
-      </button>
-    </div>
+    <button className="view-switcher" onClick={onToggle}>
+      <img 
+        src={isCompact ? '/icons/Maximize.svg' : '/icons/Minimize.svg'} 
+        alt={isCompact ? 'Focus' : 'Compact'}
+        className="view-icon"
+      />
+      <span className="view-text">
+        {isCompact ? 'Focus' : 'Compact'}
+      </span>
+    </button>
   );
 };
 

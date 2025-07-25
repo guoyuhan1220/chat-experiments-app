@@ -1,0 +1,25 @@
+.suggested-prompt-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.prompt-group-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary, #666);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-align: center;
+}
+
+.prompt-chips {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  flex-wrap: wrap;
+}

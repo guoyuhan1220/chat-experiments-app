@@ -1,15 +1,10 @@
 import React from 'react';
-import ViewSwitcher from './components/ViewSwitcher';
-import ChatBox from './components/ChatBox';
+import ChatLandingPage from './ChatLandingPage';
 
 function MainPage() {
   return (
-    <div>
-      <ViewSwitcher />
-      <main style={{ padding: '20px' }}>
-        <h1>Chat Experiments</h1>
-        <ChatBox />
-      </main>
+    <div style={{ height: '100vh' }}>
+      <ChatLandingPage />
     </div>
   );
 }

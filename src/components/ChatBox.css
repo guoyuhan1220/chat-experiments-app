@@ -1,8 +1,14 @@
 .chat-box {
   border: 1px solid #ccc;
   border-radius: 8px;
-  width: 800px;
-  margin: 20px auto;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  transition: border-color 0.2s;
+}
+
+.chat-box.focused {
+  border-color: #4200DB;
 }
 
 .chat-toolbar {
@@ -10,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 24px;
-  padding: 0 8px;
+  padding: 0 8px 4px 8px;
 }
 
 .toolbar-left {
@@ -24,4 +30,17 @@
   height: 24px;
   background-color: #dee2e6;
   margin: 0 5px;
+}
+
+.tour-highlight {
+  border: 3px solid #6842FF !important;
+  border-radius: 8px;
+  box-shadow: 0 0 0 4px rgba(104, 66, 255, 0.2), 0 0 20px rgba(104, 66, 255, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 4px rgba(104, 66, 255, 0.2), 0 0 20px rgba(104, 66, 255, 0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(104, 66, 255, 0.1), 0 0 30px rgba(104, 66, 255, 0.4); }
+  100% { box-shadow: 0 0 0 4px rgba(104, 66, 255, 0.2), 0 0 20px rgba(104, 66, 255, 0.3); }
 }

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import './TextField.css';
 
-const TextField = ({ value, onChange, placeholder }) => {
+const TextField = ({ value, onChange, placeholder, onFocus, onBlur }) => {
   const textareaRef = useRef(null);
 
   useEffect(() => {
@@ -19,6 +19,8 @@ const TextField = ({ value, onChange, placeholder }) => {
       placeholder={placeholder}
       className="text-field"
       rows={1}
+      onFocus={onFocus}
+      onBlur={onBlur}
     />
   );
 };
