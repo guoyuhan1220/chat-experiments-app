@@ -1,12 +1,85 @@
-.App {
-  text-align: center;
+.app-container {
+  display: flex;
+  height: 100vh;
 }
 
-.App-main {
+.sidebar {
+  width: 250px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
   padding: 20px;
+  overflow-y: auto;
 }
 
-.App-main h1 {
-  color: #333;
-  margin-bottom: 30px;
+.content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.nav-section {
+  margin-bottom: 20px;
+}
+
+.nav-header {
+  font-weight: bold;
+  color: #495057;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.nav-subheader {
+  font-size: 12px;
+  color: #6c757d;
+  margin: 8px 0 4px 0;
+  font-style: italic;
+}
+
+.nav-subsection {
+  margin-left: 16px;
+  border-left: 2px solid #e9ecef;
+  padding-left: 12px;
+}
+
+.nav-link {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #495057;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #e9ecef;
+  text-decoration: none;
+  color: #495057;
+}
+
+.nav-link.main {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-link.main:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.nav-link.component {
+  background-color: #28a745;
+  color: white;
+  font-weight: 500;
+}
+
+.nav-link.component:hover {
+  background-color: #1e7e34;
+  color: white;
+}
+
+.nav-link.child {
+  font-size: 13px;
+  padding-left: 8px;
 }

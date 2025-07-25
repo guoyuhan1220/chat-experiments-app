@@ -1,39 +1,27 @@
 .chat-box {
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 16px;
-  max-width: 400px;
+  width: 800px;
   margin: 20px auto;
 }
 
-.chat-input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  font-size: 14px;
+.chat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding: 0 8px;
 }
 
-.chat-buttons {
+.toolbar-left {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
-.send-btn, .clear-btn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.send-btn {
-  background-color: #007bff;
-  color: white;
-}
-
-.clear-btn {
-  background-color: #6c757d;
-  color: white;
+.toolbar-divider {
+  width: 1px;
+  height: 24px;
+  background-color: #dee2e6;
+  margin: 0 5px;
 }
