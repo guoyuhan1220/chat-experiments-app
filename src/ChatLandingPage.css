@@ -7,6 +7,7 @@
 .chat-header {
   display: flex;
   justify-content: flex-end;
+  gap: 8px;
   padding: 16px 24px;
   background: #fcfcfc;
 }
@@ -30,6 +31,37 @@
   border-color: #6842FF;
 }
 
+.tour-icon-btn {
+  display: none;
+}
+
+.onboarding-icon-btn {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.onboarding-icon-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.onboarding-icon-btn:hover {
+  background: #f5f5f5;
+  border-color: #6842FF;
+}
+
+.onboarding-button-container {
+  position: relative;
+}
+
 .chat-content {
   flex: 1;
   display: flex;
@@ -43,13 +75,13 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
 
 
 .welcome-message {
   text-align: center;
+  margin-bottom: 24px;
 }
 
 .welcome-message h1 {

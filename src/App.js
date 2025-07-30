@@ -16,6 +16,9 @@ import ViewSwitcherTest from './ViewSwitcherTest';
 import ClaudeFocusCompactTest from './ClaudeFocusCompactTest';
 import SuggestedPromptTest from './SuggestedPromptTest';
 import ProductTourTest from './ProductTourTest';
+import OnboardingChecklistTest from './OnboardingChecklistTest';
+import OnboardingWithTourTest from './OnboardingWithTourTest';
+import AgentPickerTest from './AgentPickerTest';
 
 
 function App() {
@@ -63,6 +66,9 @@ function App() {
                   <>
                     <Link to="/chatbox-test" className="nav-link component">💬 ChatBox</Link>
                     <div className="nav-indent">
+                      <Link to="/agent-picker-test" className="nav-link child">🤖 AgentPicker</Link>
+                    </div>
+                    <div className="nav-indent">
                       <Link to="/textfield-test" className="nav-link child">📝 TextField</Link>
                       <div className="nav-subheader">Toolbar:</div>
                       <div className="nav-indent">
@@ -77,6 +83,8 @@ function App() {
                     <Link to="/viewswitcher-test" className="nav-link component">🔄 ViewSwitcher</Link>
                     <Link to="/suggested-prompt-test" className="nav-link component">💡 SuggestedPrompt</Link>
                     <Link to="/product-tour-test" className="nav-link component">🎯 ProductTour</Link>
+                    <Link to="/onboarding-checklist-test" className="nav-link component">✅ OnboardingChecklist</Link>
+                    <Link to="/onboarding-with-tour-test" className="nav-link component">✅ Onboarding + Tour</Link>
                     <Link to="/claude-focus-compact" className="nav-link component">🖥️ Claude Focus/Compact</Link>
                     <Link to="/chat-action-group-test" className="nav-link component">🎛️ Chat Action Group Test</Link>
                     <Link to="/chat-landing" className="nav-link component">🏠 Chat Landing Page</Link>
@@ -103,7 +111,10 @@ function App() {
             <Route path="/viewswitcher-test" element={<ViewSwitcherTest />} />
             <Route path="/suggested-prompt-test" element={<SuggestedPromptTest />} />
             <Route path="/product-tour-test" element={<ProductTourTest />} />
+            <Route path="/onboarding-checklist-test" element={<OnboardingChecklistTest />} />
+            <Route path="/onboarding-with-tour-test" element={<OnboardingWithTourTest />} />
             <Route path="/claude-focus-compact" element={<ClaudeFocusCompactTest isCollapsed={isCollapsed} />} />
+            <Route path="/agent-picker-test" element={<AgentPickerTest />} />
           </Routes>
         </main>
       </div>

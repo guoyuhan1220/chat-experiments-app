@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './ProductTour.css';
 
-const ProductTour = ({ isActive, onClose, currentStep, onNext, onPrev, isFinishing }) => {
+const ProductTour = ({ isActive, onClose, currentStep, onNext, onPrev, hideFooter = false }) => {
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
 
   const tourSteps = [
     {
-      title: "Mode Switcher",
+      title: "Knowledge picker",
       content: "Choose between AI only, Quick resource, or Web search modes",
       target: "mode-switcher",
       position: "bottom"
@@ -28,8 +28,21 @@ const ProductTour = ({ isActive, onClose, currentStep, onNext, onPrev, isFinishi
       content: "Start automated workflows",
       target: "flow-btn",
       position: "bottom"
+    },
+    {
+      title: "Agent Picker",
+      content: "Build custom agents with different response styles and knowledge. Switch between agents to chat with specialized assistants.",
+      target: "agent-picker",
+      position: "bottom"
     }
   ];
+  
+  const agentPickerStep = {
+    title: "Agent Picker",
+    content: "Build custom agents with different response styles and knowledge. Switch between agents to chat with specialized assistants.",
+    target: "agent-picker",
+    position: "bottom"
+  };
 
   const calculateTooltipPosition = (targetId, position) => {
     const element = document.getElementById(targetId);
@@ -59,12 +72,18 @@ const ProductTour = ({ isActive, onClose, currentStep, onNext, onPrev, isFinishi
   };
 
   useEffect(() => {
-    if (isActive && tourSteps[currentStep]) {
-      const position = calculateTooltipPosition(
-        tourSteps[currentStep].target,
-        tourSteps[currentStep].position
-      );
-      setTooltipPosition(position);
+    if (isActive) {
+      let step;
+      if (currentStep === 'agent-picker') {
+        step = agentPickerStep;
+      } else if (tourSteps[currentStep]) {
+        step = tourSteps[currentStep];
+      }
+      
+      if (step) {
+        const position = calculateTooltipPosition(step.target, step.position);
+        setTooltipPosition(position);
+      }
     }
   }, [isActive, currentStep]);
 
@@ -72,47 +91,49 @@ const ProductTour = ({ isActive, onClose, currentStep, onNext, onPrev, isFinishi
 
   if (!isActive) return null;
 
-  const getTourButtonPosition = () => {
-    const tourBtn = document.querySelector('.tour-icon-btn');
-    if (!tourBtn) return { top: 0, left: 0 };
-    const rect = tourBtn.getBoundingClientRect();
-    return {
-      top: rect.top + window.pageYOffset,
-      left: rect.left + window.pageXOffset
-    };
-  };
+  const currentStepData = currentStep === 'agent-picker' ? agentPickerStep : tourSteps[currentStep];
+  if (!currentStepData) return null;
 
   return (
     <div 
-      className={`tour-tooltip hotspot ${isFinishing ? 'finishing' : ''}`}
+      className="tour-tooltip hotspot"
       style={{
         position: 'absolute',
-        top: isFinishing ? getTourButtonPosition().top : tooltipPosition.top,
-        left: isFinishing ? getTourButtonPosition().left : tooltipPosition.left
+        top: tooltipPosition.top,
+        left: tooltipPosition.left
       }}
     >
-      <div className={`tooltip-arrow ${tourSteps[currentStep].position}`} />
+      <div className={`tooltip-arrow ${currentStepData.position}`} />
       <div className="tour-header">
-        <h3>{tourSteps[currentStep].title}</h3>
+        <h3>{currentStepData.title}</h3>
         <button className="tour-close" onClick={onClose}>×</button>
       </div>
       <div className="tour-gif-placeholder">
         <div className="gif-placeholder">GIF</div>
       </div>
-      <p>{tourSteps[currentStep].content}</p>
-      <div className="tour-footer">
-        <span className="tour-progress">
-          {currentStep + 1} / {tourSteps.length}
-        </span>
-        <div className="tour-controls">
-          {currentStep > 0 && (
-            <button onClick={onPrev}>Previous</button>
-          )}
-          <button onClick={onNext}>
-            {currentStep === tourSteps.length - 1 ? 'Finish' : 'Next'}
-          </button>
+      <p>{currentStepData.content}</p>
+      {!hideFooter && currentStep !== 'agent-picker' && (
+        <div className="tour-footer">
+          <span className="tour-progress">
+            {currentStep + 1} / {tourSteps.length}
+          </span>
+          <div className="tour-controls">
+            {currentStep > 0 && (
+              <button onClick={onPrev}>Previous</button>
+            )}
+            <button onClick={onNext}>
+              {currentStep === tourSteps.length - 1 ? 'Close' : 'Next'}
+            </button>
+          </div>
         </div>
-      </div>
+      )}
+      {currentStep === 'agent-picker' && (
+        <div className="tour-footer">
+          <div className="tour-controls">
+            <button onClick={onClose}>Got it</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

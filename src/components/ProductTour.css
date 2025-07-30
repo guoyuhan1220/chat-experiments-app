@@ -10,40 +10,7 @@
   position: relative;
 }
 
-.tour-tooltip.hotspot {
-  animation: fadeInUp 0.3s ease-out;
-}
 
-.tour-tooltip.finishing {
-  animation: flyToButton 1.5s ease-in-out forwards;
-  transform-origin: center;
-}
-
-@keyframes flyToButton {
-  0% {
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(0.5) rotate(180deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(0) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 .tooltip-arrow {
   position: absolute;

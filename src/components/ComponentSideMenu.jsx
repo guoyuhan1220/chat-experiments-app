@@ -8,6 +8,7 @@ const ComponentSideMenu = ({ onComponentSelect }) => {
 
   const components = [
     { id: 'chat-box', name: 'Chat Box', icon: '💬' },
+    { id: 'agent-picker', name: 'Agent Picker', icon: '🤖' },
     { id: 'mode-switcher', name: 'Mode Switcher', icon: '🔄' },
     { id: 'view-switcher', name: 'View Switcher', icon: '👁️' },
     { id: 'suggested-prompt', name: 'Suggested Prompt', icon: '💡' },

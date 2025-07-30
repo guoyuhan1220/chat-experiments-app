@@ -8,10 +8,12 @@ import FileUploadButton from './FileUploadButton';
 import ActionButton from './ActionButton';
 import FlowButton from './FlowButton';
 
+
 const ChatBox = ({ tourStep = -1 }) => {
   const [message, setMessage] = useState('');
   const [activeToggle, setActiveToggle] = useState('option1');
   const [selectedResource, setSelectedResource] = useState('all');
+
   const [isFocused, setIsFocused] = useState(false);
 
   const handleSend = () => {
@@ -45,8 +47,11 @@ const ChatBox = ({ tourStep = -1 }) => {
     console.log('Flow clicked');
   };
 
+
+
   return (
     <div className={`chat-box ${isFocused ? 'focused' : ''}`}>
+
       <TextField 
         value={message}
         onChange={(e) => setMessage(e.target.value)}

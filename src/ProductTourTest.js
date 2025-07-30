@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ProductTour.css';
 
-const ProductTourTest = () => {
+const ProductTourTest = ({ hideFooter = false }) => {
   const [isActive, setIsActive] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
@@ -87,8 +87,7 @@ const ProductTourTest = () => {
     if (currentStep < tourSteps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
-      setIsActive(false);
-      setCurrentStep(0);
+      closeTour();
     }
   };
 
@@ -154,19 +153,21 @@ const ProductTourTest = () => {
               <button className="tour-close" onClick={closeTour}>×</button>
             </div>
             <p>{tourSteps[currentStep].content}</p>
-            <div className="tour-footer">
-              <span className="tour-progress">
-                {currentStep + 1} / {tourSteps.length}
-              </span>
-              <div className="tour-controls">
-                {currentStep > 0 && (
-                  <button onClick={prevStep}>Previous</button>
-                )}
-                <button onClick={nextStep}>
-                  {currentStep === tourSteps.length - 1 ? 'Finish' : 'Next'}
-                </button>
+            {!hideFooter && (
+              <div className="tour-footer">
+                <span className="tour-progress">
+                  {currentStep + 1} / {tourSteps.length}
+                </span>
+                <div className="tour-controls">
+                  {currentStep > 0 && (
+                    <button onClick={prevStep}>Previous</button>
+                  )}
+                  <button onClick={nextStep}>
+                    {currentStep === tourSteps.length - 1 ? 'Close' : 'Next'}
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </>
       )}

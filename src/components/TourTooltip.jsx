@@ -80,7 +80,7 @@ const TourTooltip = ({
             </button>
           )}
           <button className="tour-btn tour-btn-primary" onClick={onNext}>
-            {isLastStep ? 'Finish' : 'Next'}
+            {isLastStep ? 'Close' : 'Next'}
           </button>
         </div>
       </div>
